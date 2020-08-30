@@ -1,6 +1,4 @@
-import React, {
- createContext, useCallback, useState, useContext
-} from 'react';
+import React, { createContext, useCallback, useState, useContext } from 'react';
 
 import api from '../services/api';
 
@@ -26,7 +24,10 @@ export const AuthProvider: React.FC = ({ children }) => {
     const token = localStorage.getItem('@Fortbrasil:token');
     const user = localStorage.getItem('@Fortbrasil:user');
 
-    if (token && user) return { token, user: JSON.parse(user) };
+    if (token && user) {
+      api.defaults.headers.authorization = `Bearer ${token}`;
+      return { token, user: JSON.parse(user) };
+    }
 
     return {} as AuthState;
   });
@@ -40,6 +41,8 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     localStorage.setItem('@Fortbrasil:token', token);
     localStorage.setItem('@Fortbrasil:user', JSON.stringify(user));
+
+    api.defaults.headers.authorization = `Bearer ${token}`;
 
     setData({ token, user });
   }, []);
