@@ -9,15 +9,10 @@ interface dataInstitution {
   id: string;
   name: string;
   location: string;
-  status: 'not_done' | 'in_progress' | 'done';
 }
 
 const Dashboard: React.FC = () => {
   const history = useHistory();
-  // const [name, setName] = useState<string>('');
-  // const [location, setDesc] = useState<string>('');
-  // const [status, setStatus] = useState<string>('');
-  // return <h1>Página Dashboard2222</h1>;
 
   const [institutions, setInstitutions] = useState<dataInstitution[]>([]);
 
