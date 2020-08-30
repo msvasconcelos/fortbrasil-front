@@ -84,7 +84,7 @@ const Dashboard: React.FC = () => {
           <h1>Cadastrar novo Estabelecimento</h1>
 
           <Input name="name" icon={FiSmile} placeholder="Nome da tarefa" />
-          <Input name="location" icon={FiInfo} placeholder="Descricão" />
+          <Input name="location" icon={FiInfo} placeholder="Localização" />
 
           <Button type="submit">Cadastrar</Button>
         </Form>
